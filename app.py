@@ -4,9 +4,14 @@ import streamlit as st
 import yfinance as yf
 import time
 import google.generativeai as genai
+import os
+import pyperclip
+from dotenv import load_dotenv
 
 # Configure Google Generative AI
-GOOGLE_API_KEY = 'AIzaSyAIET2wj0SaI_Hhg7s5D7bA7qNMLoC_Nas'
+load_dotenv()
+
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Initialize generative models
@@ -136,8 +141,7 @@ def main():
         """
        <style>
         .main {
-            background-color: #0B0C10;
-            color: white;
+            
             max-width: 70%;  /* Adjusted width */
             margin: auto;    /* Center align */
             padding: 20px;
@@ -145,10 +149,7 @@ def main():
             overflow-y: auto;   /* Enable vertical scroll */
             height: 100vh;      /* Set full viewport height */
         }
-        .stApp {
-            background-color: #0B0C10;
-            color: white !important;
-        }
+        
         div[data-testid="stText"] {
             color: white !important;
         }
@@ -159,8 +160,7 @@ def main():
             color: white !important;
         }
         input[type="text"], input[type="email"], input[type="password"], textarea, select {
-            color: white !important;
-            background-color: #1F2833 !important;
+
         }
         .stButton button {
             background-color: transparent;
