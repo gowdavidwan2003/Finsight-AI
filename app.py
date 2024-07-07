@@ -17,32 +17,100 @@ model_text = genai.GenerativeModel("gemini-1.5-pro-latest")
 def get_and_store_info(ticker_symbol):
     # Fetching data from Yahoo Finance API
     stock = yf.Ticker(ticker_symbol)
-    information = stock.info
-    income_statement = stock.income_stmt
-    balance_sheet = stock.balance_sheet
-    cash_flow = stock.cashflow
-    major_holders = stock.major_holders
-    instutional_holders = stock.institutional_holders
-    mutualfunds_holder = stock.mutualfund_holders
-    insider_purchases = stock.insider_purchases
-    recommendation = stock.recommendations
-    upgrades_downgrades = stock.upgrades_downgrades
-    price_history = stock.history(period="1y")
-    price_history = price_history[['Close']]
-    price_history.index = price_history.index.astype(str)
+    
+    try:
+        information = stock.info
+        information_json = json.dumps(information, indent=4)
+    except Exception as e:
+        print(f"Error fetching information: {e}")
+        information = ""
+
+    try:
+        income_statement = stock.income_stmt
+        income_statement_json = income_statement.to_json(orient='split')
+    except Exception as e:
+        print(f"Error fetching income statement: {e}")
+        income_statement = ""
+
+    try:
+        balance_sheet = stock.balance_sheet
+        balance_sheet_json = balance_sheet.to_json(orient='split')
+    except Exception as e:
+        print(f"Error fetching balance sheet: {e}")
+        balance_sheet = ""
+
+    try:
+        cash_flow = stock.cashflow
+        cash_flow_json = cash_flow.to_json(orient='split')
+    except Exception as e:
+        print(f"Error fetching cash flow statement: {e}")
+        cash_flow = ""
+
+    try:
+        major_holders = stock.major_holders
+        major_holders_json = major_holders.to_json(orient='split')
+    except Exception as e:
+        print(f"Error fetching major holders: {e}")
+        major_holders = ""
+
+    try:
+        institutional_holders = stock.institutional_holders
+        institutional_holders_json = institutional_holders.to_json(orient='split')
+    except Exception as e:
+        print(f"Error fetching institutional holders: {e}")
+        institutional_holders = ""
+
+    try:
+        mutualfunds_holder = stock.mutualfund_holders
+        mutualfunds_holder_json = mutualfunds_holder.to_json(orient='split')
+    except Exception as e:
+        print(f"Error fetching mutual funds holders: {e}")
+        mutualfunds_holder = ""
+
+    try:
+        insider_purchases = stock.insider_purchases
+        insider_purchases_json = insider_purchases.to_json(orient='split')
+    except Exception as e:
+        print(f"Error fetching insider purchases: {e}")
+        insider_purchases = ""
+
+    try:
+        recommendation = stock.recommendations
+        recommendation_json = recommendation.to_json(orient='split')
+    except Exception as e:
+        print(f"Error fetching recommendations: {e}")
+        recommendation = ""
+
+    try:
+        upgrades_downgrades = stock.upgrades_downgrades
+        upgrades_downgrades_json = upgrades_downgrades.to_json(orient='split')
+    except Exception as e:
+        print(f"Error fetching upgrades/downgrades: {e}")
+        upgrades_downgrades = ""
+
+    try:
+        price_history = stock.history(period="1y")
+        price_history = price_history[['Close']]
+        price_history.index = price_history.index.astype(str)
+        price_history_json = price_history.to_json(orient='split')
+    except Exception as e:
+        print(f"Error fetching price history: {e}")
+        price_history = ""
+
+
 
     # Storing data in JSON format
-    information_json = json.dumps(information, indent=4)
-    income_statement_json = income_statement.to_json(orient='split')
-    balance_sheet_json = balance_sheet.to_json(orient='split')
-    cash_flow_json = cash_flow.to_json(orient='split')
-    major_holders_json = major_holders.to_json(orient='split')
-    institutional_holders_json = instutional_holders.to_json(orient='split')
-    mutualfunds_holder_json = mutualfunds_holder.to_json(orient='split')
-    insider_purchases_json = insider_purchases.to_json(orient='split')
-    recommendation_json = recommendation.to_json(orient='split')
-    upgrades_downgrades_json = upgrades_downgrades.to_json(orient='split')
-    price_history_json = price_history.to_json(orient='split')
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
 
     # Building context for generative model
     context = (
