@@ -176,7 +176,10 @@ def main():
     st.title('📈 FinSight AI 📈')
 
     st.markdown("Delivers tailored financial insights by combining Yahoo Finance data with Google Generative AI. Users can fetch and analyze comprehensive company data, aiding informed investment decisions. Currently, there are 1000 stocks available, with 500 from the S&P 500 and 500 from the Nifty 500.")
-
+    st.markdown("""
+        ### Developed by Vidwan Gowda H M
+        [GitHub](https://github.com/gowdavidwan2003) | [LinkedIn](https://www.linkedin.com/in/gowdavidwan2003/) | [Phone](tel:+917975045560) | [Email](mailto:gowdavidwan2003@gmail.com)
+        """)
 
     # Select company from dropdown
     stock_name = st.selectbox('Select Company', list(options.keys()))
