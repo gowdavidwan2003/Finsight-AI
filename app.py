@@ -201,11 +201,11 @@ def main():
 
         # Update loading message to show completion
         loading_message.text('Data fetched successfully!')
-
         time.sleep(2)
 
         # Generating content using generative model
         loading_message.text('Processing your data — please hold tight!')
+        
         prompt = (
             "The role of this model is to provide tailored company analysis. It leverages detailed company data to provide insights only from the data provided with this prompt."
             " If specific data context is absent, respond with: 'I am not equipped with data to address that issue.'"+ data +
@@ -220,8 +220,11 @@ def main():
             " 7. If data is missing or incomplete, inform the user and suggest alternative sources or actions."
             " 8. Clearly go through data and provide the most relevant data (not necessarily the exact one needed)."
         )
-
-        responses = model_text.generate_content(prompt)
+        
+        try:
+            responses = model_text.generate_content(prompt)
+        except:
+            responses = "API rate limit reached. Please try after 1 minute"
         loading_message.empty()
         st.write(responses.text)
         
