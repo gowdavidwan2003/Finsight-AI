@@ -2,6 +2,8 @@
 
 FinSight AI is a Streamlit-based application that combines Yahoo Finance data with Google Generative AI to deliver tailored financial insights for various company stocks.
 
+The FinSight AI application is live and can be accessed [here](https://finsight-ai.streamlit.app/).
+
 ## Table of Contents
 
 - [Introduction](#introduction)
