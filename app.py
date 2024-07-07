@@ -149,19 +149,6 @@ def main():
             overflow-y: auto;   /* Enable vertical scroll */
             height: 100vh;      /* Set full viewport height */
         }
-        
-        div[data-testid="stText"] {
-            color: white !important;
-        }
-        div[data-testid="stMarkdown"] {
-            color: white !important;
-        }
-        div[data-testid="stHorizontalBlock"] div[role="listbox"] {
-            color: white !important;
-        }
-        input[type="text"], input[type="email"], input[type="password"], textarea, select {
-
-        }
         .stButton button {
             background-color: transparent;
             color: #66FCF1;
