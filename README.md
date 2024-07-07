@@ -4,18 +4,6 @@ FinSight AI is a Streamlit-based application that combines Yahoo Finance data wi
 
 The FinSight AI application is live and can be accessed [here](https://finsight-ai.streamlit.app/).
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Dependencies](#dependencies)
-- [File Structure](#file-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
