@@ -221,12 +221,20 @@ def main():
             " 8. Clearly go through data and provide the most relevant data (not necessarily the exact one needed)."
         )
         
+        # try:
+        #     responses = model_text.generate_content(prompt)
+        # except:
+        #     responses = "API rate limit reached. Please try after 1 minute"
+        # loading_message.empty()
+        # st.write(responses.text)
         try:
-            responses = model_text.generate_content(prompt)
-        except:
-            responses = "API rate limit reached. Please try after 1 minute"
+            response = model_text.generate_content(prompt)
+            response_text = response.text
+        except Exception as e:
+            response_text = "API rate limit reached. Please try after 1 minute"
+        
         loading_message.empty()
-        st.write(responses.text)
+        st.write(response_text)  # Now safely accesses a string variable
         
         
 
