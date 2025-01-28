@@ -105,17 +105,17 @@ def get_and_store_info(ticker_symbol):
 
     # Building context for generative model
     context = (
-        "Here are the details of the company: " + information_json +
+        #"Here are the details of the company: " + information_json +
         " Here is the data related to the income statement: " + income_statement_json +
         " Here is the data related to the balance sheet: " + balance_sheet_json +
         " Here is the data related to the cash flow: " + cash_flow_json +
-        " Here are the major holders of the company: " + major_holders_json +
-        " Here are the institutional holders of the company: " + institutional_holders_json +
-        " Here are the mutual fund holders of the company: " + mutualfunds_holder_json +
-        " Here are the insider purchases of the company: " + insider_purchases_json +
-        " Here are the recommendations for the company: " + recommendation_json +
-        " Here are the upgrades and downgrades for the company: " + upgrades_downgrades_json +
-        " Here is the price history of the company: " + price_history_json+
+        #" Here are the major holders of the company: " + major_holders_json +
+        #" Here are the institutional holders of the company: " + institutional_holders_json +
+        #" Here are the mutual fund holders of the company: " + mutualfunds_holder_json +
+        #" Here are the insider purchases of the company: " + insider_purchases_json +
+        #" Here are the recommendations for the company: " + recommendation_json +
+        #" Here are the upgrades and downgrades for the company: " + upgrades_downgrades_json +
+        #" Here is the price history of the company: " + price_history_json+
         " This concludes the dataset and here the context ends."
     )
     return context
